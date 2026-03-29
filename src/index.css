@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-zinc-300 font-sans antialiased overflow-x-hidden selection:bg-accent-green selection:text-black min-h-screen relative;
+  }
+}
+
+/* Base grid pattern across body */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(to right, #1f2029 1px, transparent 1px), 
+    linear-gradient(to bottom, #1f2029 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-attachment: fixed;
+  opacity: 0.8;
+  z-index: -10;
+  pointer-events: none;
+}
+
+@layer components {
+  /* Dribbble Neo-Brutal/Cyber Cards */
+  .tech-card {
+    @apply bg-accent-surface/80 backdrop-blur-md border border-accent-line rounded-lg shadow-2xl relative overflow-hidden;
+  }
+
+  /* Thin tech lines for layout connecting elements */
+  .tech-line-hz {
+    @apply h-px bg-accent-line w-full;
+  }
+
+  .tech-line-vt {
+    @apply w-px bg-accent-line h-full;
+  }
+
+  .text-neon {
+    @apply text-accent-green font-mono tracking-tight;
+  }
+}
+
+/* Syntax Highlighting overrides for code windows */
+.token.keyword { color: #f472b6; }
+.token.function { color: #38bdf8; }
+.token.string { color: #a3e635; }
+.token.punctuation { color: #94a3b8; }
